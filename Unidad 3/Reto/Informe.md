@@ -1,0 +1,9 @@
+# 2. Informe
+
+La aplicación en openFrameworks genera una cuadrícula de esferas en 3D, permite seleccionarlas con el ratón y modificar sus parámetros con el teclado. En este proceso, los datos se almacenan en distintas regiones de la memoria del programa: stack, heap y segmento global/data, cada una con funciones específicas en la gestión de recursos.
+
+El vector de posiciones spherePositions está en el stack como estructura, pero sus elementos (glm::vec3) se guardan en el heap, ya que el vector reserva memoria dinámica para ellos. Las variables de control como xStep, yStep, distDiv y amplitud se ubican en el stack porque son miembros de la clase. La cámara (ofEasyCam) se maneja principalmente desde el stack, aunque internamente puede reservar recursos en el heap. Finalmente, las variables de selección (sphereSelected y selectedSphere) se mantienen en el stack y se actualizan en cada interacción
+
+Al iniciar la aplicación, el método generateGrid() crea todas las posiciones de las esferas y reserva memoria en el heap. Si la cantidad de esferas supera la capacidad del vector, este realoca un bloque mayor en el heap y copia los elementos existentes. Los parámetros y banderas de control permanecen en el stack durante toda la ejecución, mientras que la cámara mantiene parte de su gestión en heap según sus operaciones internas. Cuando el programa finaliza, el vector libera automáticamente la memoria reservada en el heap, evitando fugas.
+
+En la aplicación, las posiciones de las esferas se almacenan en el heap bajo la gestión de std::vector, mientras que las variables de control y selección residen en el stack. Objetos más complejos como la cámara combinan stack y heap en su funcionamiento. Gracias al uso de contenedores estándar de C++, la gestión de memoria es automática y segura, lo que asegura un correcto manejo de recursos durante la ejecución del programa.

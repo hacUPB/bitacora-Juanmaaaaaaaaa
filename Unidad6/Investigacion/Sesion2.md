@@ -1,5 +1,6 @@
 # Sesión 2
 
+## Ahora te pediré que te tomes un tiempo para analizar el código y entender su funcionamiento.
 
 ### Observer
 
@@ -12,3 +13,32 @@ El patrón Factory se usa para centralizar la creación de objetos con diferente
 ### State
 
 El patrón State encapsula los distintos comportamientos que puede tener un objeto dependiendo de su estado interno, permitiendo cambiar entre ellos sin usar largas estructuras condicionales. Aquí, la clase Particle mantiene un puntero a un objeto State, que puede ser NormalState, AttractState, RepelState o StopState. Cada estado define su propio comportamiento en el método update(Particle*). Cuando la partícula recibe un evento, por ejemplo "repel", cambia su estado con setState(new RepelState()), y desde ese momento su movimiento se comporta según la lógica del estado de repulsión, hasta que un nuevo evento modifique su estado nuevamente.
+
+## Experimenta con el código y realiza algunas modificaciones para entender mejor su funcionamiento. Por ejemplo:
+
+- Adiciona un nuevo tipo de partícula.
+
+Nuevas particulas "comet" y "ghost".
+
+Nuevos eventos: o → orbit, + → speedup, - → slow, g → glow.
+
+- Adiciona un nuevo estado.
+
+OrbitState: una orbita al rededor del cursor.
+
+- Crea otros eventos para notificar a las partículas.
+
+Eventos: o (orbita), + (más velocidad), - (menos velocidad), g (soles).
+
+### Evidencias:
+
+![alt text](<Captura de pantalla 2025-10-08 141810.png>)
+
+![1](<Captura de pantalla 2025-10-08 141859.png>)
+
+![2](<Captura de pantalla 2025-10-08 141959.png>)
+
+![3](<Captura de pantalla 2025-10-08 142013.png>)
+
+![4](<Captura de pantalla 2025-10-08 142038.png>)
+

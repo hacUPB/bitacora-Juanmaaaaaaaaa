@@ -1,4 +1,4 @@
-## Conclusiones
+# Conclusiones
 
 ### Reto 8
 
@@ -38,3 +38,11 @@ Son etiquetas que se usan para hacer saltos.
 
 ¿Cuál es la diferencia entre los símbolos `i` y `CONT`?
 Uno es una variable que contiene un valor, el segundo es una etiqueta que no contiene un valor pero sirve para hacer saltos.
+
+### Reto 18
+
+![alt text](<Captura de pantalla 2025-11-15 150300.png>)
+
+### Reto 19
+
+Este programa dibuja 4 valores en pantalla y luego los invierte si una tecla está presionada. Y hace un loop continuo que va alternando entre pintar e invertir

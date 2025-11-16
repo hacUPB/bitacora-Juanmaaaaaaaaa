@@ -7,6 +7,45 @@ Implementa una serpiente mediante una lista enlazada, donde cada nodo representa
 
 ### 2. Realiza evaluaciones formativas
 
+- ¿Cuántos nodos tiene la lista apenas inicia la aplicación (antes de setup())?
+
+1 nodo. El constructor de LinkedList crea un head inicial.
+
+- ¿Cuántos nodos tiene la lista justo después de setup()?
+
+11 nodos (1 inicial + 10 del for).
+
+- ¿Qué nodo toma primero la posición del ratón en update()?
+
+El nodo head. Es el primero en asignarse como (mouseX, mouseY).
+
+- ¿Cómo obtiene el segundo nodo su nueva posición?
+
+Toma la posición anterior que tenía la cabeza.
+
+- ¿Se libera memoria cuando presionas 'c'?
+
+Sí. clear() borra todos los nodos con delete.
+
+- ¿El método ~LinkedList() libera los nodos al cerrar la aplicación?
+
+Sí, porque llama clear(). No hay fugas.
+
+- ¿Qué pasa en display() cuando la lista está vacía?
+
+No dibuja nada, porque head == nullptr y el while no se ejecuta.
+
+- ¿Qué ocurre si mueves el ratón rápido?
+
+La serpiente se estira; cada nodo queda a una distancia proporcional al salto entre frames.
+
+- ¿Qué ocurriría si tail se perdiera (tail = nullptr accidentalmente)?
+
+El próximo addNode() trataría la lista como vacía y sobrescribiría head, causando inconsistencia.
+
+- ¿Es seguro llamar clear() y luego seguir dibujando en los frames siguientes?
+
+Sí. display() verifica current != nullptr, así que no hay accesos inválidos.
 
 
 ### 3. ¿Qué es una lista enlazada y en qué se diferencia de un arreglo en cuanto a la forma en que los elementos están almacenados en la memoria?
